@@ -1,4 +1,3 @@
-
 ** Pré requisitos do pyenv:
 
     sudo apt-get update
@@ -7,7 +6,7 @@
 
 ** Instalação do pyenv:
 
-curl https://pyenv.run | bash
+    curl https://pyenv.run | bash
 
 Cole o conteúdo abaixo no final do arquivo '~/.bashrc' ou '~/.zshrc'
 
@@ -51,10 +50,13 @@ Para facilitar a utilização, você pode criar alias:
 ** Pyenv + Virtualenv:
 
 * Criar:
+
     pyenv virtualenv 3.5.7 <<nome do ambiente>>
 
 * Ativar:
+
     pyenv activate <<nome do ambiente>>
 
 * Desativar
+
     pyenv deactivate
