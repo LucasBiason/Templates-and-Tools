@@ -49,14 +49,14 @@ Para facilitar a utilização, você pode criar alias:
 
 ** Pyenv + Virtualenv:
 
-* Criar:
+Criar:
 
     pyenv virtualenv 3.5.7 <<nome do ambiente>>
 
-* Ativar:
+Ativar:
 
     pyenv activate <<nome do ambiente>>
 
-* Desativar
+Desativar
 
     pyenv deactivate
