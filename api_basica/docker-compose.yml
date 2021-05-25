@@ -1,0 +1,31 @@
+version: "3"
+
+services:
+  projectapi:
+    build:
+      context: .
+    ports:
+      - "5003:5003"
+    volumes:
+      - ./projectapi:/projectapi
+      - ./projectapi/static:/static
+    command: >
+      sh -c "python manage.py wait_for_db && 
+             python manage.py migrate && 
+             python manage.py collectstatic --noinput &&
+             python manage.py runserver 0.0.0.0:5003"
+    environment:
+      - ALLOWED_HOSTS=0.0.0.0
+      - DB_HOST=db
+      - DB_NAME=projectapi
+      - DB_USER=postgres
+      - DB_PASS=postgres #Deve ser criptografado em produção
+    depends_on:
+      - db
+  
+  db:
+    image: postgres:12-alpine
+    environment:
+      - POSTGRES_DB=projectapi
+      - POSTGRES_USER=postgres 
+      - POSTGRES_PASSWORD=postgres #Deve ser criptografado em produção
